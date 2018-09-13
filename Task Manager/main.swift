@@ -7,4 +7,7 @@
 //
 
 import Foundation
+let menu = Menu()
+menu.go()
+
 
