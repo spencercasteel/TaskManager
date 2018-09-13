@@ -24,17 +24,30 @@ class Manager {
         let task = getInput()
         
         let game = Tasks(title: title, task: task)
+        // calculate due date for game
+        let today = Date()
         
+        // Calendar Way
+        let calendar = Calendar(identifier: .gregorian)
+        let due = calendar.date(byAdding: .day, value: 14, to: today)
+        
+        // set dueDate and checkedIn
+        game.dueDate = due
         tasks.append(game)
         
-        print("Successfully added \(title) - \(task).")
+        // print out duedate for user
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        
+        print("Successfully added \(game.title). complete by: \(dateFormatter.string(from: game.dueDate!)).")
+        
     }
     
     func listAllTasks() {
         print("     All Tasks")
         
         for tasks in tasks {
-            print("\(tasks.title) - \(tasks.task)")
+            print("\(tasks.title)")
         }
     }
     
@@ -46,7 +59,7 @@ class Manager {
         }
     }
     
-    func listUnavailableTasks() {
+    func listUncompletedTasks() {
         print("All Uncompleted Tasks")
         
         for task in getUncompletedTasks() {
