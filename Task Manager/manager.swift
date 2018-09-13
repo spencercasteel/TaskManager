@@ -47,13 +47,13 @@ class Manager {
     }
     
     func listUnavailableTasks() {
-        print("All Unavailable Tasks")
+        print("All Uncompleted Tasks")
         
         for task in getUncompletedTasks() {
             print("\(task.title) - \(task.task)")
         }
     }
-
+    
     private func getCompletedTasks() -> [Tasks] {
         var completedTasks = [Tasks]()
         
@@ -65,17 +65,72 @@ class Manager {
         
         return completedTasks
     }
-
-
-private func getUncompletedTasks() -> [Tasks] {
-    var uncompletedTasks = [Tasks]()
     
-    for task in tasks {
-        if !task.completed{
-            uncompletedTasks.append(task)
+    
+    private func getUncompletedTasks() -> [Tasks] {
+        var uncompletedTasks = [Tasks]()
+        
+        for task in tasks {
+            if !task.completed{
+                uncompletedTasks.append(task)
+            }
         }
+        
+        return uncompletedTasks
     }
     
-    return uncompletedTasks
-}
+    func completeTask() {
+        print("Uncompleted tasks to complete")
+        
+        let uncompletedTasks = getUncompletedTasks()
+        
+        for (index, task) in getUncompletedTasks().enumerated() {
+            print("\(index). \(task.title)")
+        }
+        
+        print("Please enter index of task you have completed:")
+        
+        let index = getIndex(arrayCount: uncompletedTasks.count)
+        let game = uncompletedTasks[index]
+        
+        game.completed = true
+        
+        print("Successfully completed \(game.title).")
+    }
+    
+    func uncompleteTask() {
+        print("completed tasks that you need to uncomlete")
+        
+        let completedTasks = getCompletedTasks()
+        
+        for (index, task) in getCompletedTasks().enumerated() {
+            print("\(index). \(task.title)")
+        }
+        
+        print("Please enter index of task that is not completed:")
+        
+        let index = getIndex(arrayCount: completedTasks.count)
+        let game = completedTasks[index]
+        
+        game.completed = false
+        
+        print("Successfully uncompleted \(game.title).")
+    }
+    
+    func deleteTask() {
+
+        print("Tasks Available to delete")
+        
+        for (index, task) in tasks.enumerated() {
+            print("\(index). \(task.title)")
+        }
+        
+        print("Please enter the index of the game you'd like to remove:")
+        
+        let index = getIndex(arrayCount: tasks.count)
+        
+        let game = tasks.remove(at: index)
+        
+        print("Successfully deleted \(game.title)")
+    }
 }

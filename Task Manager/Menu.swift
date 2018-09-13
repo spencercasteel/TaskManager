@@ -59,11 +59,11 @@ class Menu {
         case "4":
            manager.listCompletedTasks()
         case "5":
-            print("no")
+            manager.completeTask()
         case "6":
-            print("no")
+            manager.uncompleteTask()
         case "7":
-            print("no")
+            manager.deleteTask()
         case "8":
             printMenu()
         case "9":
