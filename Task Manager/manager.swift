@@ -38,11 +38,19 @@ class Manager {
         }
     }
     
-    func listAvailableTasks() {
-        print("All Available Tasks")
+    func listCompletedTasks() {
+        print("All Completed Tasks")
         
         for task in getCompletedTasks() {
-            print("\(task.title) - Rated \(task.task)")
+            print("\(task.title) - \(task.task)")
+        }
+    }
+    
+    func listUnavailableTasks() {
+        print("All Unavailable Tasks")
+        
+        for task in getUncompletedTasks() {
+            print("\(task.title) - \(task.task)")
         }
     }
 
@@ -57,5 +65,17 @@ class Manager {
         
         return completedTasks
     }
-}
 
+
+private func getUncompletedTasks() -> [Tasks] {
+    var uncompletedTasks = [Tasks]()
+    
+    for task in tasks {
+        if !task.completed{
+            uncompletedTasks.append(task)
+        }
+    }
+    
+    return uncompletedTasks
+}
+}

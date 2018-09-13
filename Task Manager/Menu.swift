@@ -55,9 +55,9 @@ class Menu {
         case "2":
             manager.listAllTasks()
         case "3":
-            print("no")
+            manager.listUnavailableTasks()
         case "4":
-           manager.listAvailableTasks()
+           manager.listCompletedTasks()
         case "5":
             print("no")
         case "6":
