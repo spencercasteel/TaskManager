@@ -17,29 +17,26 @@ class Manager {
     
     func createTask() {
         
-        print("Please enter a title:")
+        print("Please enter a title for the task:")
         let title = getInput()
         
         print("please enter your task:")
         let task = getInput()
         
-        let game = Tasks(title: title, task: task)
-        // calculate due date for game
+        let fullTask = Tasks(title: title, task: task)
+       
         let today = Date()
         
-        // Calendar Way
         let calendar = Calendar(identifier: .gregorian)
         let due = calendar.date(byAdding: .day, value: 14, to: today)
         
-        // set dueDate and checkedIn
-        game.dueDate = due
-        tasks.append(game)
-        
-        // print out duedate for user
+        fullTask.dueDate = due
+        tasks.append(fullTask)
+
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         
-        print("Successfully added \(game.title). complete by: \(dateFormatter.string(from: game.dueDate!)).")
+        print("Successfully added \(fullTask.title). complete by: \(dateFormatter.string(from: fullTask.dueDate!)).")
         
     }
     
@@ -104,11 +101,11 @@ class Manager {
         print("Please enter index of task you have completed:")
         
         let index = getIndex(arrayCount: uncompletedTasks.count)
-        let game = uncompletedTasks[index]
+        let task = uncompletedTasks[index]
         
-        game.completed = true
+        task.completed = true
         
-        print("Successfully completed \(game.title).")
+        print("Successfully completed \(task.title).")
     }
     
     func uncompleteTask() {
@@ -123,11 +120,11 @@ class Manager {
         print("Please enter index of task that is not completed:")
         
         let index = getIndex(arrayCount: completedTasks.count)
-        let game = completedTasks[index]
+        let task = completedTasks[index]
         
-        game.completed = false
+        task.completed = false
         
-        print("Successfully uncompleted \(game.title).")
+        print("Successfully uncompleted \(task.title).")
     }
     
     func deleteTask() {
@@ -142,8 +139,8 @@ class Manager {
         
         let index = getIndex(arrayCount: tasks.count)
         
-        let game = tasks.remove(at: index)
+        let task = tasks.remove(at: index)
         
-        print("Successfully deleted \(game.title)")
+        print("Successfully deleted \(task.title)")
     }
 }
