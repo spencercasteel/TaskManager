@@ -7,5 +7,5 @@
 //
 
 import Foundation
- print("please enter the admin password to your task manager")
+print("please enter the admin password to your task manager or type quit to end: ")
 Password()

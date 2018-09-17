@@ -8,7 +8,7 @@
 
 import Foundation
 
-func validateInput(_ input: String) -> Bool {
+func validateInput(_ input: String) -> Bool { // validates input for menu
     if input == "help" {
         return true
     }
@@ -20,7 +20,7 @@ func validateInput(_ input: String) -> Bool {
     return menuOptions.contains(number)
 }
 
-func getInput() -> String {
+func getInput() -> String {  // gets input from user
     var input: String? = nil
     
     repeat {
@@ -36,7 +36,7 @@ func getInput() -> String {
     return input!
 }
 
-func getIndex(arrayCount: Int) -> Int {
+func getIndex(arrayCount: Int) -> Int { // gets index from user
     var index: Int? = nil
     
     repeat {
@@ -58,7 +58,7 @@ func getIndex(arrayCount: Int) -> Int {
     return index!
 }
 
-func getPriority() -> String {
+func getPriority() -> String {  // validates input for priority
     
     var input: String? = nil
     
@@ -80,7 +80,7 @@ func getPriority() -> String {
     return input!
 }
 
-func Password() {
+func Password() {  // password for login
     let menu = Menu()
    
     var input: String? = nil
@@ -98,6 +98,8 @@ func Password() {
     
     if input == "P@$$w0rd" {
         menu.go()
+    } else if input == "quit" {
+        menu.quit()
     } else {
         print("wrong password, try again:")
         Password()

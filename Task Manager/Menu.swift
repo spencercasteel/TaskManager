@@ -14,7 +14,7 @@ class Menu {
     
     var shouldQuit = false
     
-    func go() {
+    func go() { // 
         printMenu()
     
         repeat {
@@ -32,7 +32,7 @@ class Menu {
         } while !shouldQuit
     }
     
-    func printMenu() {
+    func printMenu() {  // displays the menu
         print("""
                     Menu
             1. Create a new tasks
@@ -48,6 +48,7 @@ class Menu {
             """)
     }
     
+    // manages the users input and conects it to the function that needs to be ran
     func handleInput(_ input: String) {
         switch input {
         case "1":
@@ -73,7 +74,7 @@ class Menu {
         }
     }
     
-    func quit() {
+    func quit() {  // lets user quit
         shouldQuit = true
         print("Thanks for using your task manager")
     }

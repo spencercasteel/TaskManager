@@ -15,7 +15,7 @@ class Manager {
         Tasks(title: "shopping", task: "I need shoes", priority: Tasks.priorityChoice(rawValue: 2)!)
     ]
     
-    func createTask() {
+    func createTask() {   // greates a task for the user
         
         print("Please enter a title for the task:")
         let title = getInput()
@@ -42,7 +42,7 @@ class Manager {
         
         tasks.append(Tasks(title: title, task: task, priority: taskPriority))
        
-        let game = Tasks(title: title, task: task, priority: taskPriority)
+        let game = Tasks(title: title, task: task, priority: taskPriority)  // setting the due date
         
         let today = Date()
         
@@ -61,7 +61,7 @@ class Manager {
         
     
     
-    func listAllTasks() {
+    func listAllTasks() { // lists all tasks
         print("     All Tasks")
         
         for tasks in tasks {
@@ -69,7 +69,7 @@ class Manager {
         }
     }
     
-    func listCompletedTasks() {
+    func listCompletedTasks() { // lists all the completedTasks
         print("All Completed Tasks")
         
         for task in getCompletedTasks() {
@@ -77,7 +77,7 @@ class Manager {
         }
     }
     
-    func listUncompletedTasks() {
+    func listUncompletedTasks() {  // lists uncompleted tasks
         print("All Uncompleted Tasks")
         
         for task in getUncompletedTasks() {
@@ -85,7 +85,7 @@ class Manager {
         }
     }
     
-    private func getCompletedTasks() -> [Tasks] {
+    private func getCompletedTasks() -> [Tasks] {  // checks for completed tasks
         var completedTasks = [Tasks]()
         
         for task in tasks {
@@ -98,7 +98,7 @@ class Manager {
     }
     
     
-    private func getUncompletedTasks() -> [Tasks] {
+    private func getUncompletedTasks() -> [Tasks] {  // checks for uncompleted tasks
         var uncompletedTasks = [Tasks]()
         
         for task in tasks {
@@ -110,7 +110,7 @@ class Manager {
         return uncompletedTasks
     }
     
-    func completeTask() {
+    func completeTask() { // lets user complete task
         print("Uncompleted tasks to complete")
         
         let uncompletedTasks = getUncompletedTasks()
@@ -129,7 +129,7 @@ class Manager {
         print("Successfully completed \(task.title).")
     }
     
-    func uncompleteTask() {
+    func uncompleteTask() {   // lets user uncomplete task
         print("completed tasks that you need to uncomlete")
         
         let completedTasks = getCompletedTasks()
@@ -148,7 +148,7 @@ class Manager {
         print("Successfully uncompleted \(task.title).")
     }
     
-    func deleteTask() {
+    func deleteTask() {  // lets user delete task
 
         print("Tasks Available to delete")
         
