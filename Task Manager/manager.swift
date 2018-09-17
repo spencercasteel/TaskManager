@@ -11,8 +11,8 @@ import Foundation
 class Manager {
     
     private var tasks = [
-        Tasks(title: "mail", task: "get the mail"),
-        Tasks(title: "shopping", task: "I need shoes")
+        Tasks(title: "mail", task: "get the mail", priority: Tasks.priorityChoice(rawValue: 1)!),
+        Tasks(title: "shopping", task: "I need shoes", priority: Tasks.priorityChoice(rawValue: 2)!)
     ]
     
     func createTask() {
@@ -23,22 +23,43 @@ class Manager {
         print("please enter your task:")
         let task = getInput()
         
-        let fullTask = Tasks(title: title, task: task)
+        print("please enter the priority of the task: High, Average or low")
+        var taskPriority: Tasks.priorityChoice!
+        
+        let priorityInput = getPriority()
+        
+        if priorityInput == "high" {
+            
+            taskPriority = .high
+            
+        } else if priorityInput == "average" {
+            
+            taskPriority = .average
+            
+        } else if priorityInput == "low" {
+            taskPriority = .low
+        }
+        
+        tasks.append(Tasks(title: title, task: task, priority: taskPriority))
        
+        let game = Tasks(title: title, task: task, priority: taskPriority)
+        
         let today = Date()
         
         let calendar = Calendar(identifier: .gregorian)
         let due = calendar.date(byAdding: .day, value: 14, to: today)
         
-        fullTask.dueDate = due
-        tasks.append(fullTask)
-
+        game.dueDate = due
+        tasks.append(game)
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         
-        print("Successfully added \(fullTask.title). complete by: \(dateFormatter.string(from: fullTask.dueDate!)).")
+        print("Successfully added \(game.title). complete by: \(dateFormatter.string(from: game.dueDate!)).")
         
     }
+        
+    
     
     func listAllTasks() {
         print("     All Tasks")

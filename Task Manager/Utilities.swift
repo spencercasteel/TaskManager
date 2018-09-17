@@ -57,3 +57,25 @@ func getIndex(arrayCount: Int) -> Int {
     
     return index!
 }
+
+func getPriority() -> String {
+    
+    var input: String? = nil
+    
+    repeat {
+        
+        let line = readLine()!.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        
+        if line == "low" || line == "average" || line == "high"  {
+            
+            input = line
+            
+        } else {
+            
+            print("Invalid input")
+        }
+        
+    } while input == nil
+    
+    return input!
+}

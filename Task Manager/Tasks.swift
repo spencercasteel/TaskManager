@@ -13,11 +13,17 @@ class Tasks {
     let task: String
     var completed: Bool
     var dueDate: Date?
+    enum priorityChoice: Int {
+        case high = 1
+        case average
+        case low
+    }
+    var priority: priorityChoice
     
-    init(title: String, task: String) {
+    init(title: String, task: String, priority: priorityChoice) {
         self.title = title
         self.task = task
         self.completed = false
-        self.dueDate = nil
+        self.priority = priority
     }
 }
