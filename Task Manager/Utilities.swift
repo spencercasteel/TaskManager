@@ -79,3 +79,27 @@ func getPriority() -> String {
     
     return input!
 }
+
+func Password() {
+    let menu = Menu()
+   
+    var input: String? = nil
+    
+    repeat {
+        
+        let line = readLine()!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        if line != "" {
+            input = line
+        } else {
+            print("Invalid input.")
+        }
+    } while input == nil
+    
+    if input == "P@$$w0rd" {
+        menu.go()
+    } else {
+        print("wrong password, try again:")
+        Password()
+    }
+}

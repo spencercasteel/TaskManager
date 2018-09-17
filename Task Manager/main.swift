@@ -7,7 +7,5 @@
 //
 
 import Foundation
-let menu = Menu()
-menu.go()
-
-
+ print("please enter the admin password to your task manager")
+Password()
