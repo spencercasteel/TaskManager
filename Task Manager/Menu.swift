@@ -53,18 +53,32 @@ class Menu {
         switch input {
         case "1":
             manager.createTask()
+            sleep(3)
+            printMenu()
         case "2":
             manager.listAllTasks()
+            sleep(3)
+            printMenu()
         case "3":
             manager.listUncompletedTasks()
+            sleep(3)
+            printMenu()
         case "4":
            manager.listCompletedTasks()
+           sleep(3)
+           printMenu()
         case "5":
             manager.completeTask()
+            sleep(3)
+            printMenu()
         case "6":
             manager.uncompleteTask()
+            sleep(3)
+            printMenu()
         case "7":
             manager.deleteTask()
+            sleep(3)
+            printMenu()
         case "8":
             printMenu()
         case "9":

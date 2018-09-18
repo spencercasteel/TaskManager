@@ -17,10 +17,10 @@ class Manager {
     
     func createTask() {   // greates a task for the user
         
-        print("Please enter a title for the task:")
+        print("Please enter your task:")
         let title = getInput()
         
-        print("please enter your task:")
+        print("please enter the description of the task:")
         let task = getInput()
         
         print("please enter the priority of the task: High, Average or low")
@@ -40,8 +40,6 @@ class Manager {
             taskPriority = .low
         }
         
-        tasks.append(Tasks(title: title, task: task, priority: taskPriority))
-       
         let game = Tasks(title: title, task: task, priority: taskPriority)  // setting the due date
         
         let today = Date()
@@ -65,7 +63,7 @@ class Manager {
         print("     All Tasks")
         
         for tasks in tasks {
-            print("\(tasks.title)")
+            print("\(tasks.title) - \(tasks.priority)")
         }
     }
     

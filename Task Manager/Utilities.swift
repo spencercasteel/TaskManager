@@ -96,7 +96,7 @@ func Password() {  // password for login
         }
     } while input == nil
     
-    if input == "P@$$w0rd" {
+    if input == "1" {
         menu.go()
     } else if input == "quit" {
         menu.quit()
