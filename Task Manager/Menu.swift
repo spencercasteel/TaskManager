@@ -89,7 +89,7 @@ class Menu {
     }
     
     func quit() {  // lets user quit
-        shouldQuit = true
         print("Thanks for using your task manager")
+        shouldQuit = true
     }
 }
